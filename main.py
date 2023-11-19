@@ -12,11 +12,14 @@ app = Flask(__name__)
 
 
 @app.route('/')
+# This function renders the main page(index.html) with all posts
 def get_all_posts():
     return render_template("index.html", all_posts=post_objects)
 
 
 @app.route("/post/<int:index>")
+# function renders a specific post using its index.
+# The script retrieves post data from an API, creates Post objects, and stores them in the post_objects list.
 def show_post(index):
     requested_post = None
     for blog_post in post_objects:
